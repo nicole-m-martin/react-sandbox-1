@@ -6,7 +6,7 @@ import Navbar from './components/layout/Navbar';
 class App extends Component {
   render() {
     return (
-      <Navbar title='Github Finder' icon='fab fa-github' /> 
+      <Navbar /> 
     );
   } 
 }

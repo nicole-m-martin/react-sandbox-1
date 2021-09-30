@@ -59,6 +59,17 @@ this returns Hello LARA CROFT in browser
 
 **Props** are properties that you can pass into a component from the outside. Wherever you want to place the prop, go to that file and use curly braces { } to add an expression, and the way you access props in **class based components** is with {this.props.title}
 ```javascript
+App.js
+class App extends Component {
+  render() {
+    return (
+      <Navbar title='Github Finder' icon='fab fa-github' /> 
+    );
+  } 
+}
+```
+```javascript
+Navbar.js
 export class Navbar extends Component {
   render() {
     return (
@@ -71,6 +82,37 @@ export class Navbar extends Component {
   }
 }
 ```
+*or you can use **defaultProps** within that file.*
+```javascript
+App.js
+class App extends Component {
+  render() {
+    return (
+      <Navbar /> 
+    );
+  } 
+}
+```
+```javascript
+Navbar.js
+export class Navbar extends Component {
+  static defaultProps = {
+    title: 'Github Finder',
+    icon: 'fab fa-github'
+  }
+  render() {
+    return (
+      <nav className='navbar bg-primary'>
+        <h1>
+      <i className={this.props.icon}></i>{this.props.title}
+        </h1>
+      </nav>
+    )
+  }
+}
+```
+
+
 
 
 
