@@ -120,6 +120,9 @@ Navbar.propTypes = {
   icon: PropTypes.string.isRequired
 }
 ```
+## State:
+
+**Component Level State** component level state means that state is contained within a single component. 
 
 
 
