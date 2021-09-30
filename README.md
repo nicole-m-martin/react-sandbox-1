@@ -27,7 +27,7 @@ A class component can have State and it used to be functional components could n
   **Javascript Syntax Extension**
   Basically syntactic sugar to be able to write the output of our component in an XML or HTML like way. Under the hood its actually JS. You don't need to use JSX but it will save time and code to use JSX for your output.
 
-  There are a couple of differences between HTML and JSX. One of them is using **className** within JSX, instead of class. It will render, but you will get a warning. 
+  There are a couple of differences between HTML and JSX. One of them is using **className** within JSX, instead of **class**. It will render, but you will get a warning. 
 
   for attributes, you will use **htmlFor** with JSX. 
   ```javascript
@@ -54,6 +54,23 @@ class App extends Component {
 }
 ```
 this returns Hello LARA CROFT in browser
+
+## Props:
+
+**Props** are properties that you can pass into a component from the outside. Wherever you want to place the prop, go to that file and use curly braces { } to add an expression, and the way you access props in **class based components** is with {this.props.title}
+```javascript
+export class Navbar extends Component {
+  render() {
+    return (
+      <nav className='navbar bg-primary'>
+        <h1>
+      <i className={this.props.icon}></i>{this.props.title}
+        </h1>
+      </nav>
+    )
+  }
+}
+```
 
 
 
