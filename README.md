@@ -2,7 +2,7 @@ Sharpening my react skills with tutorials. Always learning! Yay!
 
 
 # General Notes: 
-Components can be classes, functions with hooks
+Components can be classes, or functions with hooks
 
 A class component can have State and it used to be functional components could not, but with the addition of Hooks, they allow us to have state with functional components.
 
@@ -57,7 +57,7 @@ this returns Hello LARA CROFT in browser
 
 ## Props:
 
-**Props** are properties that you can pass into a component from the outside. Wherever you want to place the prop, go to that file and use curly braces { } to add an expression, and the way you access props in **class based components** is with {this.props.title}
+**Props** are properties that you can pass into a component from the outside. Wherever you want to place the prop, go to that file and use curly braces { } to add an expression, and the way you access props in **class based components** is with {this.props.}
 ```javascript
 App.js
 class App extends Component {
@@ -109,6 +109,15 @@ export class Navbar extends Component {
       </nav>
     )
   }
+}
+```
+**Prop Types**
+Prop types are basically a type checking to tell you your prop should be a string or number or array or object etc. Helps to make sure the props are the correct data type. Use them! Similar to Typescript. 
+
+```javascript
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired
 }
 ```
 
