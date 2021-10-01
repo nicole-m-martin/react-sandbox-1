@@ -6,6 +6,8 @@ Components can be classes, or functions with hooks
 
 A class component can have State and it used to be functional components could not, but with the addition of Hooks, they allow us to have state with functional components.
 
+To use **inline style** you need to use two curly brace. ex: style={{ width: '60px' }}
+
 ## Class Components:
   You can not return directly from a class. We need a method (a function within a class) That method is called **render**. 
   
@@ -122,7 +124,60 @@ Navbar.propTypes = {
 ```
 ## State:
 
+State in React is a JS Object
+
 **Component Level State** component level state means that state is contained within a single component. 
+
+When you want to grab something from State within a class, you use {this.state. }
+
+***Better Practice is destructuring**
+before this.state was repeated many times:
+```javascript
+render() {
+    return (
+      <div className='card text-center'>
+        <img 
+        src={this.state.avatar_url} 
+        alt="pic" 
+        className='round-img' 
+        style={{ width: '60px'}} 
+        />
+        <h3>{this.state.login}</h3>
+        <div>
+          <a href={this.state.html_url} 
+          className='btn btn-dark btn-sm my-1'>
+          More</a>
+        </div>
+      </div>
+    )
+  }
+  ```
+  Refactored into destructured code: DRY Code (Don't Repeat Yourself)
+  pull the values from the state, or the object.
+  ```javascript
+   render() {
+    const { avatar_url, login, html_url } = this.state
+    return (
+      <div className='card text-center'>
+        <img 
+        src={avatar_url} 
+        alt="pic" 
+        className='round-img' 
+        style={{ width: '60px'}} 
+        />
+        <h3>{login}</h3>
+        <div>
+          <a href={html_url} 
+          className='btn btn-dark btn-sm my-1'>
+          More</a>
+        </div>
+      </div>
+    )
+  }
+  ```
+
+
+
 
 
 
