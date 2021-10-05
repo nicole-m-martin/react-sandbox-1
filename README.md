@@ -217,6 +217,8 @@ render() {
   }
   ```
   ***Destructured even more inside the refactored functional component***
+  from this: 
+
   ```javascript
   const UserItem = (props) => {
     const { avatar_url, login, html_url } = props.user
@@ -244,6 +246,44 @@ render() {
     )  
 }
 ```
+
+## Pulling Data from an Api:
+
+**Asynchronous Programming***
+The modern way to refactor a promise code, is to make asynchronous programming easier with async / await.
+
+no more .then() blocks since ***async*** turns the function into a promise. 
+
+With the ***async*** keyword added to the beginning of your function declaration makes it an async function. Then the function now knows to expect the possibility of ***await*** keyword used to invoke asynchronous code. 
+
+```javascript
+app.js
+class App extends Component {
+  // set starting state:
+  state = {
+    users: [],
+    loading: false
+  }
+// make the promise function with async / await
+// on mount the state will change loading to true, then we call axios to pull data from github api and the res awaits the promise, and when it returns the loading is now false and the users are rendered to the page.
+  async componentDidMount() {
+    this.setState({ loading: true });
+
+    const res = await axios.get('https://api.github.com/users');
+    
+    this.setState({ users: res.data, loading: false })
+  }
+  render() {
+    return (
+    <div className='App'>
+      <Navbar />
+      <div className='container'>
+      <Users loading={this.state.loading} users={this.state.users} /> 
+      </div>
+    </div>
+    );
+  } 
+}
 
 
 
