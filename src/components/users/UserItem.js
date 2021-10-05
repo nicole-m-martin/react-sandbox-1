@@ -1,19 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class UserItem extends Component {
-  // this is a constructor must use super() to work
-  // constructor() {
-  //   super();
-    // hard coded dummy data for now-will use http in refactor
-    state = {
-      id: 'id',
-      login: 'mojombo',
-      avatar_url: 'https://avatars.githubusercontent.com/u/1?v=4',
-      html_url: 'https://github.com/mojombo'
-    };
-  
-  render() {
-    const { avatar_url, login, html_url } = this.state
+// refactoring into a functional component, because we dont have state. Using an arrow function below. With a function, you don't need a render. You now pass props into the arrow function, so you don't need this.
+const UserItem = (props) => {
+    const { avatar_url, login, html_url } = props.user
+    
     return (
       <div className='card text-center'>
         <img 
@@ -29,8 +19,7 @@ class UserItem extends Component {
           More</a>
         </div>
       </div>
-    )
-  }
+    )  
 }
 
 export default UserItem
