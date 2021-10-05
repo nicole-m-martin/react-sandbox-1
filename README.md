@@ -27,7 +27,7 @@ To use **inline style** you need to use two curly brace. ex: style={{ width: '60
   } 
 }
 ```
-***Key Prop*** you will get a warning if you do not have a unique 'key' for the items in a list. A common way is to use the id as the key because id's should all be unique. <div key={user.id}>{user.login}</div>
+***Key Prop*** you will get a warning if you do not have a unique 'key' for the items in a list. A common way is to use the id as the key because id's should all be unique. ex: key={user.id}
 
 ## Functional Components:
 When components don't have State or no longer have state, they don't need to be classes. They are functional components. With the introduction of ***Hooks*** most all of your components will be functional components, because with the hooks, we can have State within the functional components.
@@ -36,8 +36,7 @@ Using functional components with Hooks uses less code and looks cleaner.
 
 Traditionally you would have stateless functional components and then you would Class-Based, where you needed to use state or ***lifecycle methods***
 
-refactored from class component to a functional component with an arrow function:
-Refactoring into a functional component, because we don't have state. Using an arrow function below. With a function, you don't need a render. You now pass props into the arrow function, so you don't need 'this dot'.
+Refactoring into a functional component, because we don't have state. Using an arrow function below. With a function, you don't need a render. You now pass props into the arrow function, so you don't need 'this dot':
 
 ```javascript
 const UserItem = (props) => {
@@ -213,6 +212,34 @@ render() {
     )
   }
   ```
+  ***Destructured even more inside the refactored functional component***
+  ```javascript
+  const UserItem = (props) => {
+    const { avatar_url, login, html_url } = props.user
+  
+  ```
+  to this:
+  ```javascript
+  const UserItem = ({ user: { avatar_url, login, html_url } }) => {
+
+  return (
+      <div className='card text-center'>
+        <img 
+        src={avatar_url} 
+        alt="pic" 
+        className='round-img' 
+        style={{ width: '60px'}} 
+        />
+        <h3>{login}</h3>
+        <div>
+          <a href={html_url} 
+          className='btn btn-dark btn-sm my-1'>
+          More</a>
+        </div>
+      </div>
+    )  
+}
+```
 
 
 
