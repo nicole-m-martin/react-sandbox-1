@@ -10,11 +10,15 @@ To use **inline style** you need to use two curly brace. ex: style={{ width: '60
 
 .map() is a high order array method and it takes a function
 
+## Lifecycle Methods:
+Lifecycle methods are special methods built-in to React, used to operate on components throughout their duration in the DOM. For example, when the component mounts, renders, updates, or unmounts.
+
+Render is a **Lifecycle Method** (it is the only one that's actually required it runs at a certain point when the components are loaded)
+
+componentDidMount() runs when the app is loaded or mounted, it will fire off immediately 
 ## Class Components:
   You can not return directly from a class. We need a method (a function within a class) That method is called **render**. 
-  
-  Render is a **Lifecycle Method** 
-  (it runs at a certain point when the components are loaded)
+
   
   ```javascript
   class App extends Component {
