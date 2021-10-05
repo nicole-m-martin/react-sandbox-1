@@ -8,6 +8,8 @@ A class component can have State and it used to be functional components could n
 
 To use **inline style** you need to use two curly brace. ex: style={{ width: '60px' }}
 
+.map() is a high order array method and it takes a function
+
 ## Class Components:
   You can not return directly from a class. We need a method (a function within a class) That method is called **render**. 
   
@@ -25,6 +27,8 @@ To use **inline style** you need to use two curly brace. ex: style={{ width: '60
   } 
 }
 ```
+***Key Prop*** you will get a warning if you do not have a unique 'key' for the items in a list. A common way is to use the id as the key because id's should all be unique. <div key={user.id}>{user.login}</div>
+
 ## JSX:
   **Javascript Syntax Extension**
   Basically syntactic sugar to be able to write the output of our component in an XML or HTML like way. Under the hood its actually JS. You don't need to use JSX but it will save time and code to use JSX for your output.
@@ -130,7 +134,7 @@ State in React is a JS Object
 
 When you want to grab something from State within a class, you use {this.state. }
 
-***Better Practice is destructuring**
+**Better Practice is destructuring**:
 before this.state was repeated many times:
 ```javascript
 render() {
