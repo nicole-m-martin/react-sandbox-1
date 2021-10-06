@@ -6,12 +6,6 @@ class Search extends Component {
     text: '',
   };
 
-  static propTypes = {
-    searchUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired,
-    showClear: PropTypes.bool.isRequired,
-  };
-
   // onChange = (e) => {
   //   this.setState({ text: e.target.value });
   // };
@@ -20,8 +14,14 @@ class Search extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: '' });
+
+    // setting up an alert: if the text is empty and user clicks button, an alert will pop up using the if statement below, if there is text entered it will search.
+    if (this.state.text === '') {
+      this.props.setAlert('Please enter a name', 'light');
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: '' });
+    }
   };
 
   onChange = (e) => {
@@ -29,6 +29,7 @@ class Search extends Component {
   };
 
   render() {
+    const { showClear, clearUsers } = this.props;
     return (
       <div>
         <form onSubmit={this.onSubmit} className="form">
@@ -45,11 +46,8 @@ class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
-        {this.props.showClear && (
-          <button
-            className="btn btn-light btn-block"
-            onClick={this.props.clearUsers}
-          >
+        {showClear && (
+          <button className="btn btn-light btn-block" onClick={clearUsers}>
             Clear
           </button>
         )}
@@ -57,5 +55,12 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  searchUsers: PropTypes.func.isRequired,
+  clearUsers: PropTypes.func.isRequired,
+  showClear: PropTypes.bool.isRequired,
+  setAlert: PropTypes.func.isRequired,
+};
 
 export default Search;
