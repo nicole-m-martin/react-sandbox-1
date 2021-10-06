@@ -268,7 +268,7 @@ const UserItem = ({ user: { avatar_url, login, html_url } }) => {
 
 Use .env file to hold onto secrets like api keys and other info you want to keep hidden.
 
-**Asynchronous Programming\***
+**Asynchronous Programming**
 The modern way to refactor a promise code, is to make asynchronous programming easier with async / await.
 
 no more .then() blocks since **_async_** turns the function into a promise.
@@ -304,3 +304,5 @@ class App extends Component {
   }
 }
 ```
+
+with an arrow function you add **async** before the parameter, not the beginning.
